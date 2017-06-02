@@ -1,0 +1,12 @@
+The (pre-)compiled library can be used within GNURoot debian as follows.
+
+    env LD_PRELOAD="libandroid-shmem.so" <command>
+
+To make it auto-load on login, enter these steps in a terminal in GNURoot:
+  unset LD_PRELOAD
+  cp libandroid-shmem.so /lib/libandroid-shmem.so
+  chmod a+r /lib/libandroid-shmem.so
+  ldconfig
+  echo "export LD_PRELOAD=\"libandroid-shmem.so\"" >> /home/.bashrc
+  exit
+
